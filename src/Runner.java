@@ -4,8 +4,12 @@ public class Runner {
         InventoryManager inventoryManager = new InventoryManager();
         OrderProcessor orderProcessor = new OrderProcessor();
 
-        Product product1 = new Product("Gadget", 10, 5, 3, 3.30, "Gadgets Inc", "123 Gadget Lane");
-        Product product2 = new Product("Watch", 1, 3, 2, 5.30, "Watches Inc", "123 Watches Lane");
+        Dimensions dimensions1 = new Dimensions(10, 5, 3);
+        Dimensions dimensions2 = new Dimensions(1, 3, 2);
+        Manufacturer manufacturer1 = new Manufacturer("Gadgets Inc", "123 Gadget Lane");
+        Manufacturer manufacturer2 = new Manufacturer("Watches Inc", "123 Watches Lane")
+        Product product1 = new Product("Gadget", dimensions1, 3.30, manufacturer1);
+        Product product2 = new Product("Watch", dimensions2, 5.30, manufacturer2);
         Customer customer = new Customer("John Doe", "123 Main St", new String[]{"Order1", "Order2"}, 100);
 
         ReportGenerator reportGenerator = new ReportGenerator();
