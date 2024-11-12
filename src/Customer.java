@@ -12,6 +12,15 @@ public class Customer {
         this.income = income;
     }
 
+    public boolean validateOrder(Order order) {
+        if (this.income > order.getTotalCost()) return true;
+        return false;
+    }
+
+    public void processPayment(Order order) {
+        this.income = ((int) (this.income - order.getTotalCost()));
+    }
+
     public int getIncome() {return income;}
 
     public void setIncome(int income) {this.income = income;}
