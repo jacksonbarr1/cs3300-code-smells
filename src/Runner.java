@@ -10,13 +10,12 @@ public class Runner {
 
         ReportGenerator reportGenerator = new ReportGenerator();
 
-        LoginService loginService = new LoginService();
         User user = new User("Alice", "alice@example.com", "password123");
 
         // Inventory Management
-        inventoryManager.manageInventory("add", "Watch", 10);
-        inventoryManager.manageInventory("add", "Gadget", 50);
-        inventoryManager.manageInventory("add", "Lamp", 25);
+        inventoryManager.manageInventory(InventoryManager.Action.ADD, "Watch", 10);
+        inventoryManager.manageInventory(InventoryManager.Action.ADD, "Gadget", 50);
+        inventoryManager.manageInventory(InventoryManager.Action.ADD, "Lamp", 25);
 
         // Order Processing
         Order order = new Order("10");
@@ -25,9 +24,12 @@ public class Runner {
         orderProcessor.processOrder(order, customer);
 
         // Login Service
-        loginService.login(user);
-        loginService.register(user);
-        loginService.resetPassword(user);
+        user.login();
+        user.register();
+        user.resetPassword("newPassword123");
+        user.activateAccount();
+        user.suspendAccount();
+
 
         // Report Generation
         String inventoryReport = reportGenerator.generateInventoryReport(inventoryManager);
@@ -38,7 +40,7 @@ public class Runner {
         System.out.println(salesReport);
 
         // Logout
-        loginService.logout(user);
+        user.logout();
     }
 }
 
