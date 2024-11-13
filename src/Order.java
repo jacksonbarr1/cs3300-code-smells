@@ -23,4 +23,8 @@ public class Order {
         return totalCost;
     }
     public String getId() { return orderId;}
+
+    public String getStatus() { return status; }
+
+    public List<Product> getProducts() { return products; }
 }
